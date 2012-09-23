@@ -44,6 +44,12 @@ Task
     task.add(gale.get, 'http://httpbin.org/get', callback=handle)
     task.add(gale.post, 'http://httpbin.org/post', data={'a': 1},
              callback=handle)
+    #or you can patch the gale.get function
+    #get = task.patch(gale.get)
+    #get('http://httpbin.org/ip', callback=handle)
+    #get('http://httpbin.org/get', callback=handle)
+    #get('http://httpbin.org/post', data={'a': 1},
+    #        callback=handle)
              
     task.run(all_done)
     gale.start()
