@@ -16,6 +16,6 @@ setup(
     url=URL,
     license="BSD",
     description=DESCRIPTION,
-    long_description=open('README').read(),
+    long_description=open('README.md').read(),
 )
 
