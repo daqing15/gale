@@ -26,6 +26,12 @@ Asynchrous HTTP Request
              proxy='user:pass@8.8.8.8:80',
              cookies={'token': 'asdfgh'}, callback=handle)
     gale.start()
+###Sleep
+    def do_after_3_seconds():
+        print 'hello'
+        gale.stop()
+    gale.sleep(3, callback=do_after_3_second)
+    gale.start()
 
 Task
 ----------
