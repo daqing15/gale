@@ -102,6 +102,11 @@ class Task():
     def add(self, func, *args, **kwargs):
         self.tasks.append(self.generate_task(func, *args, **kwargs))
 
+    def patch(self, func):
+        def wrapper(*args, **kwargs):
+            self.add(func, *args, **kwargs)
+        return wrapper
+
     def run(self, callback):
         self.num = len(self.tasks)
         self.callback = callback
