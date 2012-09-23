@@ -46,3 +46,4 @@ Task
              callback=handle)
              
     task.run(all_done)
+    gale.start()
