@@ -1,2 +1,42 @@
-# Sugar for Tornado Asynchrous HTTP client
-## Gale is just Tornado
+Gale
+=========
+Gale is just Tornado
+
+Installation
+---------
+    $ pip install gale
+
+Asynchrous HTTP Request
+----------
+
+###Get
+    import gale
+    def handle(response):
+        print response.body
+        gale.stop()
+        
+    gale.get('http://httpbin.org/ip', callback=handle)
+    gale.start()
+###Post
+    gale.post('http://httpbin.org/post', data={'a':1}, callback=handle)
+    gale.start()
+###Proxy and Cookies
+    gale.get('http://httpbin.org/get',
+             params={'a':1, 'b':2},
+             proxy='user:pass@8.8.8.8:80',
+             cookies={'token': 'asdfgh'}, callback=handle)
+    gale.start()
+
+Task
+----------
+    def all_done():
+        print 'all requests complete!'
+        gale.stop()
+        
+    task = gale.Task()
+    task.add(gale.get, 'http://httpbin.org/ip', callback=handle)
+    task.add(gale.get, 'http://httpbin.org/get', callback=handle)
+    task.add(gale.post, 'http://httpbin.org/post', data={'a': 1},
+             callback=handle)
+             
+    task.run(all_done)
