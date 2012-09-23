@@ -15,7 +15,6 @@ setup(
     packages=['gale'],
     url=URL,
     license="BSD",
-    description=DESCRIPTION,
-    long_description=open('README.md').read(),
+    description=DESCRIPTION
 )
 

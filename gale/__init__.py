@@ -1,2 +1,2 @@
-__version__ = "0.0.2"
+__version__ = "0.0.3"
 from gale import start, stop, sleep, get, post, Task
