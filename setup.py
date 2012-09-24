@@ -1,3 +1,4 @@
+import os
 from distutils.core import setup
 
 PACKAGE = "gale"
@@ -15,6 +16,9 @@ setup(
     packages=['gale'],
     url=URL,
     license="BSD",
+    long_description=open(os.path.join(os.path.dirname(__file__),"README.md"), "r").read(),
+    install_requires=['tornado'],
+    requires=['tornado'],
     description=DESCRIPTION
 )
 
